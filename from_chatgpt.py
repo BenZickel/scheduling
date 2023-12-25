@@ -40,3 +40,24 @@ def find_maximal_sum_subset(offers):
     optimal_subset.reverse()
     
     return optimal_subset
+
+
+def find_maximal_sum_subset_with_recursion(offers):
+    sorted_offers = sorted(offers, key=lambda x: x.end)
+    n = len(sorted_offers)
+    
+    def dp(index, memo):
+        if index < 0:
+            return []
+        if index not in memo:
+            current_offer = sorted_offers[index]
+            include_current = [current_offer] + dp(last_non_overlap[index], memo)
+            exclude_current = dp(index - 1, memo)
+            memo[index] = include_current if sum(offer.price for offer in include_current) > sum(offer.price for offer in exclude_current) else exclude_current
+        return memo[index]
+
+    last_non_overlap = [-1] * n
+    for i in range(n):
+        last_non_overlap[i] = next((j for j in range(i - 1, -1, -1) if sorted_offers[j].end <= sorted_offers[i].start), -1)
+
+    return dp(n - 1, {})

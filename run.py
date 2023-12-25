@@ -1,5 +1,5 @@
 from scheduling import Offer, find_optimal_schedule
-from from_chatgpt import find_maximal_sum_subset
+from from_chatgpt import find_maximal_sum_subset, find_maximal_sum_subset_with_recursion
 
 offers = [
     Offer(1, 7, 20),
@@ -23,4 +23,9 @@ for not_accepted_offer in not_accepted_offers:
     print(not_accepted_offer)
 
 # Check ChatGPT's answer
-set(accepted_offers) == set(find_maximal_sum_subset(offers))
+if set(accepted_offers) != set(find_maximal_sum_subset(offers)) or \
+   set(accepted_offers) != set(find_maximal_sum_subset_with_recursion(offers)):
+    raise('\nChatGPT''s answers are incorrect.')
+else:
+    print('\nChatGPT''s answers are correct.')
+
