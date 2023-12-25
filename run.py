@@ -21,3 +21,6 @@ for accepted_offer in accepted_offers:
 print('\nNot accepted offers are:')
 for not_accepted_offer in not_accepted_offers:
     print(not_accepted_offer)
+
+# Check ChatGPT's answer
+set(accepted_offers) == set(find_maximal_sum_subset(offers))
