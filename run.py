@@ -1,4 +1,5 @@
 from scheduling import Offer, find_optimal_schedule
+from from_chatgpt import find_maximal_sum_subset
 
 offers = [
     Offer(1, 7, 20),
