@@ -1,3 +1,7 @@
+#
+# The below is based on the ChatGPT conversation https://chat.openai.com/share/52de138c-6891-472a-a764-b390394ac70b
+#
+
 def find_maximal_sum_subset(offers):
     # Sort the offers based on end time
     sorted_offers = sorted(offers, key=lambda x: x.end)
